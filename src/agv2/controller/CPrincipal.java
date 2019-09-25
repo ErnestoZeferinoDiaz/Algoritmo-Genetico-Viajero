@@ -1,5 +1,6 @@
 package agv2.controller;
 
+import agv2.model.City;
 import agv2.model.Configuracion;
 import agv2.model.Cromosoma;
 import agv2.model.Fitness.MyComparador;
@@ -12,8 +13,10 @@ import agv2.view.VPlano;
 import agv2.view.VPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class CPrincipal implements ActionListener{
+public class CPrincipal implements ActionListener,MouseListener{
     private VPrincipal vp;
     private VPlano vpl;
     
@@ -27,6 +30,7 @@ public class CPrincipal implements ActionListener{
         this.vp = new VPrincipal();
         this.vpl = new VPlano();
         
+        this.vpl.setLocation(this.vp.getWidth(), 0);
         this.vpl.setVisible(true);
         this.vp.setVisible(true);
         
@@ -48,7 +52,7 @@ public class CPrincipal implements ActionListener{
         this.vp.btn_calc.addActionListener(this);
         this.vp.btn_noRand.addActionListener(this);
         this.vp.btn_xyRand.addActionListener(this);
-        
+        this.vpl.l.addMouseListener(this);
     }
     
     public void getDataView(){
@@ -62,7 +66,7 @@ public class CPrincipal implements ActionListener{
         int x,z;
         int iter;
         boolean isIguals=false;
-        int noMuestra=20;
+        int noMuestra=Integer.parseInt(this.vp.txt_noMuestras.getText());
         double[] muestra= new double[noMuestra];
         if(e.getSource().equals(this.vp.btn_noRand)){
             this.f.rand(Integer.parseInt(this.vp.txt_noRand.getText()));
@@ -106,5 +110,27 @@ public class CPrincipal implements ActionListener{
             this.vpl.l.repaint();
         }
     }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        double dx,dy;
+        dx=(-City.ref.getWidth()/2)+e.getX();
+        dy=(City.ref.getHeight()/2)-e.getY();
+        this.f.addCity(dx,dy);
+        this.vpl.l.setCalc(false);
+        this.vpl.l.repaint();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {}
+
+    @Override
+    public void mouseReleased(MouseEvent e) {}
+
+    @Override
+    public void mouseEntered(MouseEvent e) {}
+
+    @Override
+    public void mouseExited(MouseEvent e) {}
     
 }
