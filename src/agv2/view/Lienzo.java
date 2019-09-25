@@ -33,6 +33,11 @@ public class Lienzo extends JPanel{
         //g2.drawLine(w/2, 0, w/2, h);
         
         if(this.ciudades!=null){
+            g.setColor(Color.WHITE);
+            for(int x=0; x<this.ciudades.size(); x++){
+                g2.fill(ciudades.get(x).getCity());
+                g2.drawString(x+"", (int)(ciudades.get(x).getCity().getX()-10),(int)ciudades.get(x).getCity().getY()-10);
+            }
             if(this.isCalc()){
                 for(int x=0; x<this.ciudades.size(); x++){
                     iX1=indices.get(x).getVal();
@@ -42,17 +47,10 @@ public class Lienzo extends JPanel{
                     }else{
                         g2.setColor(Color.WHITE);
                     }
-                    g2.fill(ciudades.get(iX1).getCity());
-                    
                     g2.drawLine((int)ciudades.get(iX1).getCity().getCenterX(),
                                 (int)ciudades.get(iX1).getCity().getCenterY(),
                                 (int)ciudades.get(iX2).getCity().getCenterX(),
                                 (int)ciudades.get(iX2).getCity().getCenterY());
-                }
-            }else{
-                g.setColor(Color.WHITE);
-                for(int x=0; x<this.ciudades.size(); x++){
-                    g2.fill(ciudades.get(x).getCity());
                 }
             }
             
