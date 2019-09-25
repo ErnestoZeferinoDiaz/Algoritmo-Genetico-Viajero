@@ -11,7 +11,7 @@ public class City extends Point{
         this.setLocation(Configuracion.srand(-300, 300),Configuracion.srand(-300, 300));
     }
     
-    public City(double c,double y){
+    public City(double x,double y){
         this.setLocation(x,y);
     }
     
