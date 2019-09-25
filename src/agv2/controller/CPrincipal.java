@@ -66,8 +66,8 @@ public class CPrincipal implements ActionListener,MouseListener{
         int x,z;
         int iter;
         boolean isIguals=false;
-        int noMuestra=Integer.parseInt(this.vp.txt_noMuestras.getText());
-        double[] muestra= new double[noMuestra];
+        int noMuestra;
+        double[] muestra;
         if(e.getSource().equals(this.vp.btn_noRand)){
             this.f.rand(Integer.parseInt(this.vp.txt_noRand.getText()));
             this.vpl.l.setCalc(false);
@@ -79,6 +79,8 @@ public class CPrincipal implements ActionListener,MouseListener{
             this.vpl.l.repaint();
         }else if(e.getSource().equals(this.vp.btn_calc)){
             this.getDataView();
+            noMuestra=Integer.parseInt(this.vp.txt_noMuestras.getText());
+            muestra= new double[noMuestra];
             iter=Integer.parseInt(this.vp.txt_noIteraciones.getText());
             this.g.init();
             x=0;
@@ -86,7 +88,7 @@ public class CPrincipal implements ActionListener,MouseListener{
             do{
                 z=x;
                 this.g.evolucion();
-                System.out.println(x+" Mejor: "+this.g.getPoblacionActual().getMejor()+"\t fit: "+this.g.getPoblacionActual().getMejor().getFitnessValue());
+                //System.out.println(x+" Mejor: "+this.g.getPoblacionActual().getMejor()+"\t fit: "+this.g.getPoblacionActual().getMejor().getFitnessValue());
                 muestra[z%noMuestra]=this.g.getPoblacionActual().getMejor().getFitnessValue();
                 if(z%noMuestra==0 && x!=0){
                     isIguals=true;
@@ -105,6 +107,8 @@ public class CPrincipal implements ActionListener,MouseListener{
                 }
                 x++;
             }while(x<iter && !isIguals);
+            this.vp.lbl_distancia.setText("Distancia recorrida: "+this.g.getPoblacionActual().getMejor().getFitnessValue());
+            this.vp.lbl_combinacion.setText("Combinacion: \n"+this.g.getPoblacionActual().getMejor().toString());
             this.vpl.l.setCalc(true);
             this.vpl.l.setIndices(g.getPoblacionActual().getMejor());
             this.vpl.l.repaint();
