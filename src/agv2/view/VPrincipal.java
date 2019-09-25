@@ -50,6 +50,7 @@ public class VPrincipal extends javax.swing.JFrame {
         btn_calc = new javax.swing.JButton();
         lbl_distancia = new javax.swing.JLabel();
         lbl_combinacion = new javax.swing.JLabel();
+        lbl_noIteraciones = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -177,7 +178,8 @@ public class VPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_calc, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_distancia)
-                    .addComponent(lbl_combinacion))
+                    .addComponent(lbl_combinacion)
+                    .addComponent(lbl_noIteraciones))
                 .addContainerGap(263, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -190,7 +192,9 @@ public class VPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbl_distancia)
                         .addGap(18, 18, 18)
-                        .addComponent(lbl_combinacion))
+                        .addComponent(lbl_combinacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_noIteraciones))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -252,6 +256,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel lbl_combinacion;
     public javax.swing.JLabel lbl_distancia;
+    public javax.swing.JLabel lbl_noIteraciones;
     public javax.swing.JTextField txt_noIteraciones;
     public javax.swing.JTextField txt_noMuestras;
     public javax.swing.JTextField txt_noPoblacion;

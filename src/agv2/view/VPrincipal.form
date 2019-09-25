@@ -33,6 +33,7 @@
                   <Component id="btn_calc" min="-2" pref="94" max="-2" attributes="0"/>
                   <Component id="lbl_distancia" min="-2" max="-2" attributes="0"/>
                   <Component id="lbl_combinacion" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_noIteraciones" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="263" max="32767" attributes="0"/>
           </Group>
@@ -49,6 +50,8 @@
                       <Component id="lbl_distancia" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lbl_combinacion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lbl_noIteraciones" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanel2" max="32767" attributes="0"/>
@@ -280,6 +283,11 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_combinacion">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_noIteraciones">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

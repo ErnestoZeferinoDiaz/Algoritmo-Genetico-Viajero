@@ -107,6 +107,7 @@ public class CPrincipal implements ActionListener,MouseListener{
                 }
                 x++;
             }while(x<iter && !isIguals);
+            this.vp.lbl_noIteraciones.setText("Generaciones: "+x);
             this.vp.lbl_distancia.setText("Distancia recorrida: "+this.g.getPoblacionActual().getMejor().getFitnessValue());
             this.vp.lbl_combinacion.setText("Combinacion: \n"+this.g.getPoblacionActual().getMejor().toString());
             this.vpl.l.setCalc(true);
